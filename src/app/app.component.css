@@ -1,0 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.containeer{
+  background-color: rgb(16, 216, 99);
+  padding: 5px;
+}
+
+.main_heading{
+  background-color: rgb(16, 216, 99);
+  padding: 5px;
+}

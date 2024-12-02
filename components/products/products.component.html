@@ -1,0 +1,46 @@
+<div class="">
+  <h3></h3>
+</div>
+<div class="addProButton">
+  <button class="btn btn-primary" *ngIf="!showAddproduct" (click)="addProduct()">Add Product</button>
+  <button class="btn btn-danger" *ngIf="showAddproduct" (click)="closeProduct()">Close</button>
+</div>
+
+
+<div  >
+  
+<table [ngClass]="showAddproduct ? 'tableSmall' : ''">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Product Id</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Product Description</th>
+      <th scope="col">Date Created  </th>
+      <th scope="col">Unit Price </th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Product Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let item of products;let i=index"
+    (click)="selectProduct(i)"
+    [ngClass]="rowIndex==i?'active':''">
+      <td>{{item.productId}}</td>
+      <td>{{item.productName}}</td>
+      <td>{{item.productDescription}}</td>
+      <td>{{item.createdDate}}</td>
+      <td>{{item.unitPrice }}</td>
+      <td>{{item.quantity}}
+          <p style="color: green;" *ngIf="item.quantity>50"> Stock</p>
+          <p style="color: red;" *ngIf="item.quantity<=50">Out Of Stock</p>
+      </td>
+      <td>
+        <button [disabled]="rowIndex!=i"><img style="width: 15px;height: 15px;" src="https://static.vecteezy.com/system/resources/previews/000/637/727/original/vector-eye-icon-symbol-sign.jpg" ></button>
+        <button [disabled]="rowIndex!=i"><img style="width: 15px;height: 15px;" src="https://tse4.mm.bing.net/th?id=OIP.YTK5CDuJmgkdVblJqT4exQHaHa&pid=Api&P=0&h=220" ></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+</div>
